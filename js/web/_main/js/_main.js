@@ -613,7 +613,7 @@ GetFights = () =>{
 	// --------------------------------------------------------------------------------------------------
 	// --------------------------------------------------------------------------------------------------
 	// Es wurde das LG eines Mitspielers angeklickt, bzw davor die Übersicht
-
+	let LastKostenrechnerOpenTime = 0;
 	// GB overview of another player
 	FoEproxy.addHandler('GreatBuildingsService', 'getOtherPlayerOverview', (data, postData) => {
 		MainParser.UpdatePlayerDict(data.responseData, 'LGOverview');
@@ -622,6 +622,26 @@ GetFights = () =>{
 		if (Investment) {
 			Investment.UpdateData(data.responseData, false);
 		}
+		
+		// ####### Ajout Seb - debut
+		Calculator.Overview = data.responseData;
+		Calculator.DetailViewIsNewer = false;
+
+		$('#calculator-Btn').removeClass('hud-btn-red');
+		$('#calculator-Btn-closed').remove();
+
+		// wenn schon offen, den Inhalt updaten
+		//if ($('#LGOverviewBox').is(':visible')) {
+		if ($('#LGOverviewBox').length > 0) {
+			let CurrentTime = new Date().getTime()
+			if (CurrentTime < LastKostenrechnerOpenTime + 1000){
+				Calculator.ShowOverview(true);
+			}
+			else{
+				Calculator.ShowOverview(false);
+			}
+		}
+		// ####### Ajout Seb - fin
 
 	});
 
@@ -760,11 +780,21 @@ GetFights = () =>{
 
 			Calculator.Rankings = Rankings;
 			Calculator.CityMapEntity = CityMapEntity['responseData'][0];
+			// ####### Modif Seb - debut
+			Calculator.DetailViewIsNewer = true;
+			// ####### Modif Seb - fin
 
 			// wenn schon offen, den Inhalt updaten
+			// ####### Modif Seb - debut
+			/*
 			if ($('#costCalculator').length > 0) {
 				Calculator.Show();
 			}
+			*/
+			if ($('#costCalculator').is(':visible') || ($('#LGOverviewBox').is(':visible') && Calculator.AutoOpenKR)) {
+				Calculator.Show(Rankings, CityMapEntity.responseData[0]);
+			}
+			// ####### Modif Seb - fin
 		}
 
 	}

@@ -1484,5 +1484,17 @@
     "Settings.doubleFPtimeout.Title": "Bloqueur de double don",
     "StrategyPoints.BuyableFP": "FoE-Helper : Nombre de Points Forge pouvant être achetés avec des pièces.",
     "StrategyPoints.FPInBar": "FoE-Helper : Nombre de Pf dans votre barre.",
+    "Boxes.LGOverviewBox.Building": "Bâtiment",
+    "Boxes.LGOverviewBox.Level": "Niveau",
+    "Boxes.LGOverviewBox.NothingToGet": "<strong>__player__</strong> n'a rien à récupérer.",
+    "Boxes.LGOverviewBox.PaidTotal": "Payé / Total",
+    "Boxes.LGOverviewBox.Profit": "Gain",
+    "Boxes.LGOverviewBox.Rate": "Ratio",
+    "Boxes.LGOverviewBox.Title": "Dépôts possibles",
+    "Boxes.LGOverviewBox.Tooltip.FoundAgain": "Reconnu",
+    "Boxes.LGOverviewBox.Tooltip.FoundNew": "Nouveauté",
+    "Boxes.LGOverviewBox.Tooltip.NoPayment": "Aucun dépôt jusqu'ici",
+    "Boxes.Calculator.Rate": "Ratio",
+
     "_Language": "Français"
 }

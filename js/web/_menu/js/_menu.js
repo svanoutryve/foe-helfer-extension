@@ -346,9 +346,14 @@ let _menu = {
 		);
 
 		let btn_Calc = $('<span />').bind('click', function () {
+			// ####### Modif Seb - debut
+			/*
 			if (Calculator.CityMapEntity) {
 				Calculator.Show('menu');
 			}
+			*/
+			Calculator.Open();
+			// ####### Modif Seb - fin
 		});
 
 		btn_CalcBG.append(btn_Calc);
