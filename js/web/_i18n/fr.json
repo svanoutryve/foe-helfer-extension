@@ -1496,5 +1496,11 @@
     "Boxes.LGOverviewBox.Tooltip.NoPayment": "Aucun dépôt jusqu'ici",
     "Boxes.Calculator.Rate": "Ratio",
 
+    "Boxes.Neighbors.AttackingArmy": "Bonus estimé de l'armée d'attaque : __attatt__%(ATT) / __attdef__%(DEF)",
+    "Boxes.Neighbors.DefendingArmy": "Bonus estimé de l'armée de défense : __defatt__%(ATT) / __defdef__%(DEF)",
+    "Boxes.Neighbors.GuildPower": "Puissance de guilde",
+    "Boxes.Neighbors.OngoingProductions": "Productions en cours",
+    "Boxes.Neighbors.ReadyProductions": "Productions terminées",
+
     "_Language": "Français"
 }

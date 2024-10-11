@@ -385,6 +385,12 @@ GetFights = () =>{
 		MainParser.SetArkBonus2()
 
 		MainParser.UpdateActiveMap('main')
+		// ####### Ajout Seb - debut
+		// ErnteBox beim zurÃƒÂ¼ckkehren in die Stadt schliessen
+		$('#ResultBox').fadeToggle(function () {
+			$(this).remove();
+		});
+		// ####### Ajout Seb - fin
 	});
 
 
@@ -417,6 +423,19 @@ GetFights = () =>{
 	FoEproxy.addHandler('OtherPlayerService', 'visitPlayer', (data, postData) => {
 		CityMap.IsExtern = true
 		LastMapPlayerID = data.responseData['other_player']['player_id']
+		// ####### Ajout Seb - debut
+		let IsPlunderable = (OtherPlayer.is_neighbor && !OtherPlayer.is_friend && !OtherPlayer.is_guild_member);
+
+		//if (Settings.GetSetting('ShowAllPlayerAttDeff') || IsPlunderable && Settings.GetSetting('ShowNeighborsGoods')) {
+		if (IsPlunderable) {
+			Reader.OtherPlayersBuildings(data.responseData, IsPlunderable);
+		}
+		else {
+			$('#ResultBox').remove();
+		}
+		
+		LastMapPlayerID = data.responseData['other_player']['player_id'];
+		// ####### Ajout Seb - fin
 		MainParser.OtherPlayerCityMapData = Object.assign({}, ...data.responseData['city_map']['entities'].map((x) => ({ [x.id]: x })))
 	});
 
