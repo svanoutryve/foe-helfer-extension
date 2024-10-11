@@ -464,6 +464,7 @@ let Negotiation = {
 	 * @param {number} [forcedTryCount]
 	 */
 	StartNegotiation: (responseData, forcedTryCount) => {
+		/*
 		if (responseData.context === Negotiation.CONST_Context_GBG) {
 			if (! $('#negotiation-Btn').hasClass('hud-btn-red')) {
 				$('#negotiation-Btn').addClass('hud-btn-red');
@@ -471,6 +472,7 @@ let Negotiation = {
 			}
 			return; //No Negotiation helper for GBG
 		}
+			*/
 
 		Negotiation.StartNegotiationBackupData = responseData;
 
